@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Meteriosa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="tituloPrincipal">
+        <h1 id="titulo" >Criptografia</h1>
+    </header>
+    <section id="imagemPrincipal">
+        <img src="img/criptografia2017.jpg" id="imagem" >
+    </section>
+  
+   
+    <section id="inputPrincipal">
+
+        <label for="mensagemEntrada"  class="digite">Digite seu Texto aqui </label>
+        <textarea name="mensagemEntrada" placeholder="Digite sua Mensagem aqui" id="mensagemEntrada" cols="50" rows="5"></textarea> 
+
+        <section id="selectPrincipal">
+            <label for="selectLanguage">Selecione o tipo de Criptografia</label>
+            <select name="selectLanguage" id="selectLanguage">
+                
+                <option value="escolha">Escolha uma liguagem</option>
+                <option value="base64">Base 64</option>
+                <option value="cifraCs">Cifra de César</option>
+               
+                
+                
+            </select> 
+            
+        </section>
+        <section id="incrementoPrincipal" class="incremento invisivel">
+            
+            <label for="incremento">incremento</label>
+            <input type="number" name="incremento" id="incremento">
+       
+        </section>
+
+        <section id="radioSelect">
+
+            <div class="radiobtns">
+                <input type="radio" name="criptografar" id="radioCodificar">
+                <label for="radioCodificar">Codificar</label>
+                
+            </div>
+            <div class="radiobtns">
+
+                <input type="radio" name="criptografar" id="radioDescodificar">
+                <label for="radioDescodificar">Descodificar</label>
+                
+            </div>
+        </section>
+        
+        <section id="btnPrincipal">
+
+            <button class="btns invisivel" id="btnCodificar">Codificar</button>
+            <button class="btns invisivel" id="btnDescodificar" >Descodificar</button>
+            
+            
+        </section>
+
+        <label for="mensagem" class="digite">Mensagem Codificada </label>
+        <textarea name="mensagemSaida" id="mensagemSaida" cols="50" rows="5"></textarea><br>
+        
+        
+    </section>
+
+    <script src="criptografar.js"></script>
+</body>
+</html>

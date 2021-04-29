@@ -1,0 +1,95 @@
+*{
+
+    padding: 0;
+    margin: 0;
+
+}
+
+
+body {
+
+    background-image: url(img/twKmE8.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-attachment: fixed;
+
+    color: palegreen;
+
+
+    text-align: center;
+    vertical-align: middle;
+
+    width: 100%;
+    height: 876px;
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+#tituloPrincipal {
+
+
+    height:70px;
+
+
+}
+.digite {
+
+    height: 60px;
+    width: 100%;
+
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+
+}
+#selectPrincipal{
+    font-size: 19px;
+    width: 100%;
+    height: 30px;
+}
+
+#radioSelect{
+
+    font-size: 18px;
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.radiobtns {
+    display: flex;
+
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.invisivel {
+
+    display: none;
+}
+
+.btns {
+
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
