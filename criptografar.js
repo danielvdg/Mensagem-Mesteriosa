@@ -89,7 +89,7 @@ selecaoDeMetodo.addEventListener("change", () => {
         }
 
         mensagemDeSaida.textContent = LetrasAscii.join("");
-        console.log(LetrasAscii);
+        
       });
     });
   } else {
