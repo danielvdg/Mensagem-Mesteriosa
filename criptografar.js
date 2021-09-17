@@ -93,6 +93,6 @@ selecaoDeMetodo.addEventListener("change", () => {
       });
     });
   } else {
-    console.log("selecione algo");
+    console.log("selecione algum metodo");
   }
 });
