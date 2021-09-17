@@ -1,82 +1,111 @@
-// variavéis que pegam o valor do mundo HTML
-var selectPrincipal = document.querySelector("#selectPrincipal");
-var selectLanguage = document.querySelector("#selectLanguage");
+var metodoDeCodificacao = document.querySelector("#metodoDeCodificao");
+var selecaoDeMetodo = document.querySelector("#selectMethod");
 
-var entradaTexto = document.querySelector("#mensagemEntrada");
-var resultado = document.querySelector("#mensagemSaida");
+var mensagemDeEntrada = document.querySelector("#mensagemEntrada");
+var mensagemDeSaida = document.querySelector("#mensagemSaida");
+var resultadoConteiner = document.querySelector(".resultado");
 
 var radioCodificar = document.querySelector("#radioCodificar");
 var radioDescodificar = document.querySelector("#radioDescodificar");
+var incremento = document.querySelector(".incremento");
+var incrementoValor = document.querySelector("#incremento");
 
-var btnPrincipal = document.querySelector("#btnPrincipal");
 
 var btnCodificar = document.querySelector("#btnCodificar");
 var btnDescodificar = document.querySelector("#btnDescodificar");
 
-var inputIncremento = document.querySelector("#incremento")
-var inputIncrementoPincipal = document.querySelector("#incrementoPrincipal")
+selecaoDeMetodo.addEventListener("change", () => {
+
+    btnCodificar.classList.add("invisivel");
+    btnDescodificar.classList.add("invisivel");
+    incremento.classList.add("invisivel");
+    resultadoConteiner.classList.add("invisivel");
 
 
+  if (metodoDeCodificacao.value === "base64") {
+    incremento.classList.add("invisivel");
+    radioCodificar.addEventListener("focus", () => {
+      btnCodificar.classList.remove("invisivel");
+      btnDescodificar.classList.add("invisivel");
+      resultadoConteiner.classList.add("invisivel");
+      btnCodificar.addEventListener("click", () => {
+        resultadoConteiner.classList.remove("invisivel");
+        mensagemDeSaida.textContent = btoa(mensagemDeEntrada.value);
+      });
+    });
 
-// adicionando um evento quando eu mudo o tipo de lingaguem que quero utilizar
-selectPrincipal.addEventListener("change", function(){
-    // classListe que remove display none do css
-    btnCodificar.classList.remove("invisivel");        
-    btnDescodificar.classList.remove("invisivel")
-    
-    //Condicional para escolher a criptografia
-    if (selectLanguage.value === "base64"){
-        inputIncrementoPincipal.classList.add("invisivel")   
-        radioCodificar = btoa(entradaTexto.value);
-        btnCodificar.addEventListener("click", function(){
-            
-            resultado.textContent =  radioCodificar;
-            console.log(resultado);
-            
-        });
+    radioDescodificar.addEventListener("focus", () => {
+      btnDescodificar.classList.remove("invisivel");
+      btnCodificar.classList.add("invisivel");
+      resultadoConteiner.classList.add("invisivel");
+      btnDescodificar.addEventListener("click", () => {
+        resultadoConteiner.classList.remove("invisivel");
+       mensagemDeSaida.textContent = atob(mensagemDeEntrada.value);
+      });
+    });
+  } else if (metodoDeCodificacao.value === "cifraCs") {
+    incremento.classList.remove("invisivel");
+    radioCodificar.addEventListener("focus", () => {
+      btnCodificar.classList.remove("invisivel");
+      btnDescodificar.classList.add("invisivel");
+      resultadoConteiner.classList.add("invisivel");
+
+
+      btnCodificar.addEventListener("click", () => {
+        resultadoConteiner.classList.remove('invisivel')
+        let arryText = mensagemDeEntrada.value.split('')
+        let numeracaoAscii = []
         
-        radioDescodificar = entradaTexto.value;
-        btnDescodificar.addEventListener("click", function(){
-            
-            resultado.textContent = atob(radioDescodificar)
-            console.log(resultado);
-            
-        });
+        let LetrasAscii = []
+        for (let i = 0 ; i < arryText.length ; i++){
+          numeracaoAscii.push(arryText[i].charCodeAt() + parseInt(incrementoValor.value))
+          
+        }
+       
+        for (let i = 0 ; i < numeracaoAscii.length; i++ ){
+          LetrasAscii.push(String.fromCharCode(numeracaoAscii[i]))
+          
+        }
+
+        mensagemDeSaida.textContent = LetrasAscii.join('')
+        console.log(LetrasAscii);
         
-    }else if(selectLanguage.value === "cifraCs"){
-        radioCodificar = entradaTexto.value;
-        inputIncrementoPincipal.classList.remove("invisivel")
         
         
-        btnCodificar.addEventListener("click", function(){
-            
-            var valorIncremento = inputIncremento.value
-            radioCodificar.split("");
-            var nomeCharCode = [];
-            var nomeFromCode = [];
-            var juntaGeral ="";           
-            
-            
-            console.log(radioCodificar);
-            // esse loop serve para converter minha array de letras separadas para numeros da tabela ASCII
-            for( var i = 0 ; i < radioCodificar.length ; i++){
-                // transformar minha Array em numero da tabela ASCII
-                nomeCharCode.push(radioCodificar[i].charCodeAt()+ valorIncremento);
-                nomeFromCode.push(String.fromCharCode(nomeCharCode[i]));
-                juntaGeral = nomeFromCode.join("");    
-            }
-           
-            resultado.textContent = juntaGeral             
-           
-            
-        });
 
         
+       
+
+      });
+    });
+
+    radioDescodificar.addEventListener("focus", () => {
+      btnDescodificar.classList.remove("invisivel");
+      btnCodificar.classList.add("invisivel");
+      resultadoConteiner.classList.add("invisivel");
+
+      btnDescodificar.addEventListener("click", () => {
         
-    } else {
-        inputIncrementoPincipal.classList.add("invisivel")
-        btnCodificar.classList.add("invisivel");        
-        btnDescodificar.classList.add("invisivel");
-    }   
-    
+        resultadoConteiner.classList.remove('invisivel')
+        let arryText = mensagemDeEntrada.value.split('')
+        let numeracaoAscii = []
+        
+        let LetrasAscii = []
+        for (let i = 0 ; i < arryText.length ; i++){
+          numeracaoAscii.push(arryText[i].charCodeAt() - parseInt(incrementoValor.value))
+          
+        }
+       
+        for (let i = 0 ; i < numeracaoAscii.length; i++ ){
+          LetrasAscii.push(String.fromCharCode(numeracaoAscii[i]))
+          
+        }
+
+        mensagemDeSaida.textContent = LetrasAscii.join('')
+        console.log(LetrasAscii);
+      });
+    });
+  } else {
+    console.log("selecione algo");
+  }
 });
